@@ -88,7 +88,7 @@
                 </div>
                 <div class=" col-xs-12 col-sm-2">
                     <p style="padding:40px"></p>
-                    <a href="#reservationForm" role="button" class="btn btn-block btn-warning">Reserve Table</a>
+                    <a href="#reservationForm" role="button" class="btn btn-block btn-warning" data-toggle="tooltip" title="Or cal us at +852 12345678" data-placement="bottom">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -262,6 +262,11 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 
 </body>
 
