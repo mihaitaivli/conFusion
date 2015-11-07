@@ -89,11 +89,11 @@
     </div>
 
     <div id="reservationModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Reserve a table </h4>
+                    <h4 class="modal-title">Reserve Table </h4>
                 </div>
                 <div class="modal-body">
                     <form class="form-horizontal" role="form">
@@ -117,6 +117,17 @@
                             <label class="radio-inline">
                                 <input type="radio" name="nrGuests" id="nrGuests6" value="6"> 6
                             </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="smokerSection" class="control-label col-xs-12 col-sm-2">Section</label>
+                            <div class="btn-group" data-toggle="buttons" name="smokerSection" id="smokerSection">
+                                <label class="btn btn-success btn-sm active">
+                                    <input type="checkbox" autocomplete="off" checked> Non-Smoking
+                                </label>
+                                <label class="btn btn-danger btn-sm">
+                                    <input type="checkbox" autocomplete="off"> Smoking
+                                </label>
+                            </div>
                         </div>
                         <div class="form-group has-feedback">
                             <label for="dateAndTime" class="control-label col-xs-12 col-sm-2">Date and Time</label>
