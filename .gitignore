@@ -6,6 +6,9 @@
 *.swp
 *.swo
 
+#bower
+/bower_components/*
+
 # Compiled source #
 ###################
 *.com
