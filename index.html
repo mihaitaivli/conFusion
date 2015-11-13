@@ -53,7 +53,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                        <a id="loginButton"><span class="glyphicon glyphicon-log-in"></span> Login</a>
                     </li>
                 </ul>
             </div>
@@ -377,6 +377,10 @@
 
             $('#reserveButton').click(function() {
                 $('#reservationModal').modal('show');
+            });
+
+            $('#loginButton').click(function() {
+                $('#loginModal').modal('show');
             });
         });
 
