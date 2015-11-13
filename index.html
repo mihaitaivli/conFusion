@@ -173,7 +173,7 @@
                 </div>
                 <div class=" col-xs-12 col-sm-2">
                     <p style="padding:40px"></p>
-                    <a role="button" class="btn btn-block btn-warning">Reserve Table</a>
+                    <a id="reserveButton" role="button" class="btn btn-block btn-warning">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -373,6 +373,10 @@
 
             $('#carousel-play').click(function() {
                 $('#mycarousel').carousel('cycle');
+            });
+
+            $('#reserveButton').click(function() {
+                $('#reservationModal').modal('show');
             });
         });
 
