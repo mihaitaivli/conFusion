@@ -42,7 +42,13 @@
             </div>
         </div>
         <div class="col-xs-9 col-xs-offset-1">
-            <p>Put the comments here</p>
+            <h4><strong>Customer comments</strong></h4>
+            <blockquote ng-repeat="comment in ddCtrl.dish.comments">
+                <p>{{comment.rating}} Stars</p>
+                <p>{{comment.comment}}</p>
+                <footer>{{comment.author}}, {{comment.date | date}}</footer>
+
+            </blockquote>
         </div>
     </div>
 
