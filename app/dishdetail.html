@@ -26,31 +26,43 @@
 <body>
 
 <div class="container">
-    <div class="row row-content" ng-controller="dishDetailController as ddCtrl">
+    <div class="row row-content" ng-controller="DishDetailController">
         <div class="col-xs-12 media">
             <div class="media-left media-middle">
                 <a href="#">
                     <img class="media-object img-thumbnail"
-                         ng-src={{ddCtrl.dish.image}} alt="Uthappizza">
+                         ng-src={{dish.image}} alt="Uthappizza">
                 </a>
             </div>
             <div class="media-body">
-                <h2 class="media-heading">{{ddCtrl.dish.name}}
-                    <span class="label label-danger">{{ddCtrl.dish.label}}</span>
-                    <span class="badge">{{ddCtrl.dish.price | currency}}</span></h2>
-                <p>{{ddCtrl.dish.description}}</p>
+                <h2 class="media-heading">{{dish.name}}
+                    <span class="label label-danger">{{dish.label}}</span>
+                    <span class="badge">{{dish.price | currency}}</span></h2>
+                <p>{{dish.description}}</p>
             </div>
         </div>
         <div class="col-xs-9 col-xs-offset-1">
                 <h4><strong>Customer comments</strong>
                     <small class="col-xs-offset-1">Sort by <input type="text" ng-model="criteria"></small>
                 </h4>
-            <blockquote ng-repeat="comment in ddCtrl.dish.comments | orderBy:criteria">
+            <blockquote ng-repeat="comment in dish.comments | orderBy:criteria">
                 <p>{{comment.rating}} Stars</p>
                 <p>{{comment.comment}}</p>
                 <footer>{{comment.author}}, {{comment.date | date}}</footer>
 
             </blockquote>
+        </div>
+        <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
+            <ul class="list-unstyled">
+                <p>Task 3: Here you include the code to show the live preview of the comment</p>
+                <p>The comment should be shown only when the form contains valid
+                    information and is not pristine</p>
+            </ul>
+            <form class="form-horizontal" name="commentForm"
+                  ng-submit="submitComment()" novalidate>
+                <p>Task 1: Design the form to submit the comments</p>
+                <p>Task 2: You need to validate that the user name and comments are entered</p>
+            </form>
         </div>
     </div>
 
@@ -61,7 +73,7 @@
 
     var app = angular.module('confusionApp', []);
 
-    app.controller('dishDetailController', function () {
+    app.controller('DishDetailController',['$scope', function ($scope) {
 
         var dish = {
             name: 'Uthapizza',
@@ -105,10 +117,10 @@
             ]
         };
 
-        this.dish = dish;
+        $scope.dish = dish;
 
 
-    });
+    }]);
 
 </script>
 
