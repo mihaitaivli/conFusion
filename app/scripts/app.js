@@ -167,19 +167,16 @@ angular.module('confusionApp', [])
             //for testing how the object is looking :-)
             console.log($scope.currentComment);
 
-            //TODO
-            //use variable for decision about displaying he comment preview
-            $scope.commentHasErrors = false;
 
             // Step 3: Push your comment into the dish's comment array
             $scope.dish.comments.push($scope.currentComment);
 
 
-            //TODO Step 4: reset your form to pristine
-
+            //Step 4: reset your form to pristine
+            $scope.commentForm.$setPristine();
 
             //Step 5: reset your JavaScript object that holds your comment
-
+            $scope.currentComment = {author: "", rating: 5, comment: "", date: ""};
         }
     }])
 
