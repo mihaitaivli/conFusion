@@ -33,4 +33,9 @@ angular.module('confusionApp')
             return corpfac;
         }])
 
+    .service('feedbackFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
+        this.sendFeedbackToDB = function(){
+            return $resource(baseURL + "feedback/:id", null, {'update':{method:'PUT' }});
+        };
+    }])
 ;
