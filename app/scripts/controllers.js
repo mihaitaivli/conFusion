@@ -9,6 +9,7 @@ angular.module('confusionApp')
             $scope.showDetails = false;
             $scope.showMenu = false;
             $scope.message = "Loading...";
+            $scope.showPromotion = false;
 
             menuFactory.getDishes().query(
                 function(response) {
@@ -18,6 +19,17 @@ angular.module('confusionApp')
                 function(response) {
                     $scope.message = "Error: "+response.status + " " + response.statusText;
                 });
+
+
+            menuFactory.getPromotion().query(
+                function(response){
+                    $scope.promotion = response;
+                    $scope.showPromotion = true;
+                },
+                function(response){
+                    $scope.message = "Error: "+response.status + " " + response.statusText;
+                }
+            );
 
             $scope.select = function(setTab) {
                 $scope.tab = setTab;
@@ -122,7 +134,18 @@ angular.module('confusionApp')
                         $scope.message = "Error: "+response.status + " " + response.statusText;
                     }
                 );
-            $scope.promotion = menuFactory.getPromotion(0);
+            $scope.promotion = menuFactory.getPromotion().get({id:0})
+                .$promise.then(
+                    function(response){
+                        $scope.promotion = response;
+                        $scope.showPromotion = true;
+                    },
+                    function(response) {
+                        $scope.message = "Error: "+response.status + " " + response.statusText;
+                    }
+                );
+
+            ;
             $scope.leader = corporateFactory.getLeader(3);
         }])
 
