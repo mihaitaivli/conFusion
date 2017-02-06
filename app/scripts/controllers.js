@@ -10,6 +10,7 @@ angular.module('confusionApp')
             $scope.showMenu = false;
             $scope.message = "Loading...";
             $scope.showPromotion = false;
+            $scope.showLeader = false;
 
             menuFactory.getDishes().query(
                 function(response) {
@@ -69,7 +70,7 @@ angular.module('confusionApp')
         }])
 
         .controller('FeedbackController', ['$scope', function($scope) {
-            
+
             $scope.sendFeedback = function() {
                 
                 console.log($scope.feedback);
@@ -145,8 +146,16 @@ angular.module('confusionApp')
                     }
                 );
 
-            ;
-            $scope.leader = corporateFactory.getLeader(3);
+            $scope.leader = corporateFactory.getLeaders().get({id:3})
+                .$promise.then(
+                    function(response){
+                        $scope.leader = response;
+                        $scope.showLeader = true;
+                    },
+                    function(response) {
+                        $scope.message = "Error: "+response.status + " " + response.statusText;
+                    }
+                );
         }])
 
         .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory){
