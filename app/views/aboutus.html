@@ -54,16 +54,19 @@
         <div class="row row-content">
             <div class="col-xs-12 col-sm-9">
                 <h2>Corporate Leadership</h2>
-               <ul class="media-list">
-                   <li class="media" ng-repeat="lead in leaders | filter:abbr">
+                <div class="col-xs-12" ng-if="!showLeader">
+                    <h3>{{message}}</h3>
+                </div>
+               <ul class="media-list" ng-if="showLeader">
+                   <li class="media" ng-repeat="leader in leaders | filter:abbr">
                        <div class="media-left media-middle">
-                           <img class="media-object img-thumbnail" src="{{lead.image}}" alt="Picture">
+                           <img class="media-object img-thumbnail" src="{{leader.image}}" alt="Picture">
                        </div>
                        <div class="media-body">
-                           <h3 class="media-heading">{{lead.name}}
-                               <span class="small">{{lead.designation}}</span>
+                           <h3 class="media-heading">{{leader.name}}
+                               <span class="small">{{leader.designation}}</span>
                            </h3>
-                           <p>{{lead.description}}</p>
+                           <p>{{leader.description}}</p>
                        </div>
                    </li>
                </ul>

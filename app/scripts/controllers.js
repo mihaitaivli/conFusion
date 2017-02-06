@@ -159,7 +159,16 @@ angular.module('confusionApp')
         }])
 
         .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory){
-            $scope.leaders = corporateFactory.getLeaders();
+            $scope.leaders = corporateFactory.getLeaders().query()
+                .$promise.then(
+                    function(response){
+                        $scope.leaders = response;
+                        $scope.showLeader = true;
+                    },
+                    function(response) {
+                        $scope.message = "Error: "+response.status + " " + response.statusText;
+                    }
+                );
         }])
 
 ;
